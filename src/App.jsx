@@ -1,13 +1,13 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import OpeningPage from "./pages/OpeningPage.jsx";
-import GetStartedPage from "./pages/GetStarted.jsx";
-import GetStartedPage2 from "./pages/GetStarted2.jsx";
+import GetStarted from "./pages/GetStarted.jsx";
+import GetStarted2 from "./pages/GetStarted2.jsx";
 import Register from "./pages/Register.jsx";
 import CulturalPref2 from "./pages/CulturalPrefernces.jsx";
 import Login from "./pages/Login.jsx";
 import DietPreferences from "./pages/DietPreferences.jsx";
-import PhysicalAttributes from "./pages/Physical.jsx";
+import PhysicalAttributes from "./pages/PhysicalAttributes.jsx";
 import Health from "./pages/Health.jsx";
 import MealPlan from "./pages/MealPlan.jsx";
 import KitchenPage from "./pages/Kitchen.jsx";
@@ -16,11 +16,11 @@ import MyTools from "./pages/Pantry.jsx";
 
 function App() {
   return (
-    <Router>
+    
       <Routes>
         <Route path="/" element={<OpeningPage />} />
-        <Route path="/get-started" element={<GetStartedPage />} />
-        <Route path="/get-started2" element={<GetStartedPage2 />} />
+        <Route path="/get-started" element={<GetStarted />} />
+        <Route path="/get-started2" element={<GetStarted2 />} />
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<Login />} />
         <Route path="/diet" element={<DietPreferences/>} />
@@ -32,7 +32,7 @@ function App() {
         <Route path="/kitchen" element={<KitchenPage />} />
         <Route path="/tools" element={<MyTools />} />
       </Routes>
-    </Router>
+    
   );
 }
 
