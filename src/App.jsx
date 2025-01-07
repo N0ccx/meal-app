@@ -13,6 +13,7 @@ import MealPlan from "./pages/MealPlan.jsx";
 import KitchenPage from "./pages/Kitchen.jsx";
 import Dashboard1 from "./pages/Dashboard.jsx";
 import MyTools from "./pages/Pantry.jsx";
+import ForgotPassword from "./pages/ForgotPassword.jsx";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard1 />} />
         <Route path="/kitchen" element={<KitchenPage />} />
         <Route path="/tools" element={<MyTools />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
     
   );

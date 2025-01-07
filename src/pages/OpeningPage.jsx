@@ -1,13 +1,16 @@
 import React from 'react';
-import openImage from '../assets/opening.png'
+import openImage from '../assets/opening.png';
+
 const OpeningPage = () => {
   return (
-    <div className="bg-custom-gradient h-64 w-full">
-      <div className="container">
-         <img src={openImage} alt="home_logo" className="w-5 h-auto" />
-         <div className="w-full font-poppins text-[calc(8px+0.5vw)] font-normal leading-[calc(15px+0.5vw)] text-center text-white mt-0 transform translate-x-[11px]">
-          Ai Powered Nutrition & Meal Prep Partner
-        </div>
+    <div className="h-screen w-full bg-custom-gradient flex flex-col items-center justify-center animate-fade-in">
+      <img 
+        src={openImage} 
+        alt="home_logo" 
+        className="w-1/4 h-auto mb-4" // Adjust width and add margin below
+      />
+      <div className="font-poppins text-[calc(1px+1vw)] font-normal leading-[calc(1px+1vw)] text-center text-white">
+        Ai Powered Nutrition & Meal Prep Partner
       </div>
     </div>
   );
