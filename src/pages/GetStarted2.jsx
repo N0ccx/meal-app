@@ -21,6 +21,15 @@ const GetStarted2 = () => {
           Sign Up with Email
         </Link>
       <Social />
+      <p className="text-center text-gray-600 text-sm mt-6">
+          Already a Member?{" "}
+          <Link
+            to="/signin"
+            className="text-gray-600 font-semibold hover:underline"
+          >
+            Sign In
+          </Link>
+        </p>
     </div>
     </div>
     </>

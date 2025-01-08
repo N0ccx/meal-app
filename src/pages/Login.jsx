@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { logo, eyeIcon, eyeOffIcon } from "../assets/images";
+import { logo } from "../assets/images";
 import Social from "../components/socialandbuttons";
+import InputField from "../components/InputField";
+import Navbar from "../components/NavBar";
+import PasswordField from "../components/PasswordField";
 
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -14,18 +17,8 @@ const Login = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-between items-center h-screen bg-white">
-        {/* Navbar */}
-        <div className="flex items-center justify-between w-full px-4 py-2 white">
-          <Link
-            to="/get-started"
-            className="text-lg font-semibold text-gray-600"
-          >
-            &#8592;
-          </Link>
-          <h2 className="block text-lg font-bold text-gray-800">Login</h2>
-          <div></div>
-        </div>
+      <div className="flex flex-col justify-between items-center h-screen bg-gray-100">
+      <Navbar label="Login" link="/" />
 
         {/*Logo Section */}
         <div className="flex flex-col items-center mt-6">
@@ -40,52 +33,25 @@ const Login = () => {
         </div>
 
         {/*Form */}
-        <form className="w-[351px] max-w-md space-y-4 border-none outline-none">
-          {/*Email */}
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-semibold text-gray-600"
-            >
-              Email Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-violet-600"
-              placeholder="Enter your email"
-              required
-            />
-          </div>
+        <form className="w-[351px] max-w-md space-y-6">
+          <InputField
+            id="email"
+            type="email"
+            label="Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email"
+          />
 
-          {/*Password */}
-          <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-semibold text-gray-600"
-            >
-              Password
-            </label>
-            <div className="relative">
-              <input
-                type={passwordVisible ? "text" : "password"}
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-violet-600"
-                placeholder="Enter your password"
-                required
-              />
-              <img
-                src={passwordVisible ? eyeOffIcon : eyeIcon}
-                alt="Toggle Password Visibility"
-                onClick={togglePasswordVisibility}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 cursor-pointer"
-              />
-            </div>
-          </div>
+          <PasswordField
+            id="password"
+            label="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            isVisible={passwordVisible}
+            toggleVisibility={togglePasswordVisibility}
+            placeholder="Enter your password"
+          />
         </form>
         <button
           type="submit"
@@ -94,7 +60,7 @@ const Login = () => {
           Login
         </button>
         <Link
-          to="/signin"
+          to="/forgot-password"
           className="block text-sm font-semibold text-custom-gradient mt-6"
         >
           Forgot Password
@@ -102,14 +68,14 @@ const Login = () => {
         <div className="text-gray-600 text-center text-text-sm mt-6">
           Don't have an Account? {"  "}
           <Link
-            to="/signin"
+            to="/register"
             className="text-gray-600 font-semibold hover:underline"
           >
             Sign up
           </Link>
         </div>
-        <div className="w-[337px] space-y-4 mt-2">
-        <Social />
+        <div className="w-[337px] space-y-4 mt-2 bg-gray-100">
+          <Social />
         </div>
       </div>
     </>

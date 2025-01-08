@@ -10,5 +10,6 @@ export { default as carnivore } from './diet/carnivore-icon.png';
 export { default as pescatarian } from './diet/pescatarian-icon.png';
 export { default as vegan } from './diet/vegan-icon.png';
 export { default as vegetarian } from './diet/vegetarian-icon.png';
+export { default as keto } from './diet/keto-icon.png';
 
 

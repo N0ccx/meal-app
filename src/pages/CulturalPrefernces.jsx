@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Next from "../components/button";
+import SelectionGroup from "../components/SelectionGroup";
+import Navbar from "../components/NavBar";
 
 const CulturalPreferences = () => {
   const [countries, setCountries] = useState([]);
@@ -11,6 +13,11 @@ const CulturalPreferences = () => {
   const [budget, setBudget] = useState("");
   const [religion, setReligion] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+  };
+
   useEffect(() => {
     fetch("/data/countries.json")
       .then((response) => response.json())
@@ -21,15 +28,9 @@ const CulturalPreferences = () => {
   return (
     <div className="flex flex-col h-screen bg-white">
       {/* Navbar */}
-      <div className="flex items-center justify-between px-4 py-3 bg-white">
-        <Link to="/get-started" className="text-lg font-semibold text-gray-600">
-          &#8592;
-        </Link>
-        <h2 className="text-lg font-bold text-gray-800">Cultural Preferences</h2>
-        <div></div>
-      </div>
+      <Navbar label="Cultural Preferences" link="/ph1" />
 
-      <form className="flex flex-col items-center px-4 mt-4 space-y-6">
+      <form onSubmit={handleSubmit} className="flex flex-col items-center px-4 mt-4 space-y-6">
         {/* Country Selection */}
         <div className="w-full max-w-md">
           <label className="block mb-2 text-sm font-semibold text-gray-600">
@@ -77,121 +78,52 @@ const CulturalPreferences = () => {
         )}
 
         {/* Region Preference */}
-        <div className="w-full max-w-md">
-          <label className="block mb-2 text-sm font-semibold text-gray-600">
-            Only recommend meals from my current region
-          </label>
-          <p className="text-xs text-gray-500 mb-2">
-            Note: Selecting meals from your current country makes finding
-            ingredients easier.
-          </p>
-          <button
-            type="button"
-            className={`w-[92px] py-2 text-sm font-semibold rounded-md ${
-              regionOnly ? "bg-violet-600 text-white" : "bg-gray-200 text-gray-700"
-            }`}
-            onClick={() => setRegionOnly(!regionOnly)}
-          >
-            {regionOnly ? "Yes" : "No"}
-          </button>
-        </div>
+        <SelectionGroup
+          label="Only recommend meals from my current region"
+          options={["Often", "Sometimes", "Always"]}
+          selectedOption={regionOnly}
+          onSelect={setRegionOnly}
+        />
 
         {/* Cooking Frequency */}
-        <div className="w-full max-w-md">
-          <label className="block mb-2 text-sm font-semibold text-gray-600">
-            How often do you cook?
-          </label>
-          <div className="flex justify-between">
-            {["Never", "Sometimes", "Always"].map((option) => (
-              <button
-                key={option}
-                className={`w-[92px] py-2 text-sm font-semibold rounded-md ${
-                  frequency === option
-                    ? "bg-violet-600 text-white"
-                    : "bg-gray-200 text-gray-700"
-                }`}
-                onClick={() => setFrequency(option)}
-              >
-                {option}
-              </button>
-            ))}
-          </div>
-        </div>
+        <SelectionGroup
+          label="How often do you cook?"
+          options={["Never", "Sometimes", "Always"]}
+          selectedOption={frequency}
+          onSelect={setFrequency}
+        />
 
         {/* Cooking Skill */}
-        <div className="w-full max-w-md">
-          <label className="block mb-2 text-sm font-semibold text-gray-600">
-            How would you describe your cooking skill?
-          </label>
-          <div className="flex justify-between">
-            {["Beginner", "Intermediate", "Advanced"].map((skill) => (
-              <button
-                key={skill}
-                className={`w-[92px] py-2 text-sm font-semibold rounded-md ${
-                  cookingSkill === skill
-                    ? "bg-violet-600 text-white"
-                    : "bg-gray-200 text-gray-700"
-                }`}
-                onClick={() => setCookingSkill(skill)}
-              >
-                {skill}
-              </button>
-            ))}
-          </div>
-        </div>
+        <SelectionGroup
+          label="How would you describe your cooking skill?"
+          options={["Beginner", "Intermediate", "Advanced"]}
+          selectedOption={cookingSkill}
+          onSelect={setCookingSkill}
+        />
 
         {/* Budget */}
-        <div className="w-full max-w-md">
-          <label className="block mb-2 text-sm font-semibold text-gray-600">
-            Budget per meal
-          </label>
-          <div className="flex justify-between">
-            {["Small", "Okay", "Large"].map((budgetOption) => (
-              <button
-                key={budgetOption}
-                className={`w-[92px] py-2 text-sm font-semibold rounded-md ${
-                  budget === budgetOption
-                    ? "bg-violet-600 text-white"
-                    : "bg-gray-200 text-gray-700"
-                }`}
-                onClick={() => setBudget(budgetOption)}
-              >
-                {budgetOption}
-              </button>
-            ))}
-          </div>
-        </div>
+        <SelectionGroup
+          label="Budget per meal"
+          options={["Small", "Okay", "Large"]}
+          selectedOption={budget}
+          onSelect={setBudget}
+        />
 
         {/* Religious Restrictions */}
-        <div className="w-full max-w-md">
-          <label className="block mb-2 text-sm font-semibold text-gray-600">
-            Religious Restrictions
-          </label>
-          <div className="flex justify-between">
-            {["Islam (Halal)", "Judaism (Kosher)"].map((religiousOption) => (
-              <button
-                key={religiousOption}
-                className={`w-[92px] py-2 text-sm font-semibold rounded-md ${
-                  religion === religiousOption
-                    ? "bg-violet-600 text-white"
-                    : "bg-gray-200 text-gray-700"
-                }`}
-                onClick={() => setReligion(religiousOption)}
-              >
-                {religiousOption}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Submit Button */}
-        <Link
-          to="/diet-preferences"
-          className="w-full max-w-md py-2 text-center text-white bg-violet-600 rounded-md hover:opacity-90"
-        >
-          Next
-        </Link>
+        <SelectionGroup
+          label="Religious Restrictions"
+          options={["Islam (Halal)", "Judaism (Kosher)"]}
+          selectedOption={religion}
+          onSelect={setReligion}
+        />
       </form>
+
+      {/* Next Button */}
+      <div className="flex justify-center items-center w-full mt-4">
+        <div className="w-[430px]">
+          <Next label="Next" link="/diet" />
+        </div>
+      </div>
     </div>
   );
 };

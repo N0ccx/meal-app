@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Next from "../components/button";
+import SelectionGroup from "../components/SelectionGroup";
 
 const PhysicalAttributes = () => {
   const [selectedSex, setSelectedSex] = useState("");
@@ -26,27 +28,12 @@ const PhysicalAttributes = () => {
 
       <form className="flex flex-col items-center px-4 mt-4 space-y-6">
         {/* Biological Sex */}
-        <div className="w-full max-w-md">
-          <label className="block mb-2 text-sm font-semibold text-gray-600">
-            Biological Sex
-          </label>
-          <div className="flex justify-between">
-            {["Female", "Male", "Others"].map((sex) => (
-              <button
-                key={sex}
-                type="button"
-                className={`w-[92px] py-2 text-sm font-semibold rounded-md ${
-                  selectedSex === sex
-                    ? "bg-violet-600 text-white"
-                    : "bg-gray-200 text-gray-700"
-                }`}
-                onClick={() => setSelectedSex(sex)}
-              >
-                {sex}
-              </button>
-            ))}
-          </div>
-        </div>
+        <SelectionGroup
+          label="Biological Sex"
+          options={["Female", "Male", "Others"]}
+          selectedOption={selectedSex}
+          onSelect={setSelectedSex}
+        />
 
         {/* Age */}
         <div className="w-full max-w-md">
@@ -127,37 +114,15 @@ const PhysicalAttributes = () => {
           </select>
         </div>
 
-        {/* Body Fat */}
-        <div className="w-full max-w-md">
-          <label className="block mb-2 text-sm font-semibold text-gray-600">
-            Body Fat
-          </label>
-          <div className="flex justify-between">
-            {["Low", "Medium", "High"].map((fat) => (
-              <button
-                key={fat}
-                type="button"
-                className={`w-[92px] py-2 text-sm font-semibold rounded-md ${
-                  bodyFat === fat
-                    ? "bg-violet-600 text-white"
-                    : "bg-gray-200 text-gray-700"
-                }`}
-                onClick={() => setBodyFat(fat)}
-              >
-                {fat}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Submit Button */}
-        <Link
-          to="/pf1"
-          className="w-full max-w-md py-2 text-center text-white bg-violet-600 rounded-md hover:opacity-90"
-        >
-          Next
-        </Link>
+        {/* Budget */}
+        <SelectionGroup
+          label="Body Fat"
+          options={["Low", "Medium", "High"]}
+          selectedOption={bodyFat}
+          onSelect={setBodyFat}
+        />
       </form>
+      <Next label="Next" link="/pf1" />
     </div>
   );
 };

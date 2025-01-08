@@ -1,26 +1,44 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { vegan, balanced, vegetarian,  } from '../assets/images'
+import React, { useState } from "react";
+import { vegan, vegetarian, pescatarian, carnivore, balanced, keto } from "../assets/images";
+import Next from "../components/button";
+import Navbar from "../components/NavBar";
 
 const DietPreferences = () => {
+  const diets = [
+    { name: "Balanced", icon: balanced },
+    { name: "Keto", icon: keto },
+    { name: "Vegetarian", icon: vegetarian },
+    { name: "Pescatarian", icon: pescatarian },
+    { name: "Vegan", icon: vegan },
+    { name: "Carnivore", icon: carnivore },
+  ];
+  const [selectedDiet, setSelectedDiet] = useState("");
+
   return (
-    <div className="flex flex-col justify-between items-center h-screen bg-gray-100">
-    {/* Navbar */}
-    <div className="flex items-center justify-between w-full px-4 py-2 bg-gray-200">
-      <Link to="/get-started" className="text-lg font-semibold text-gray-600">
-        &#8592;
-      </Link>
-      <h2 className="text-lg font-bold text-gray-800">Diet Type</h2>
-      <div className='flex flex-col items-center gap-1 mt-3 '>
-        <div className='w-[360px] h-auto'>
-          <img src={vegan} />
-        </div>
+    <div className="flex flex-col h-screen bg-gray-100">
+    <Navbar label="Diet Type" link="/pf1" />
+
+      {/* Diet Options */}
+      <div className="grid md:grid-cols-2 gap-4 p-4">
+        {diets.map((diet, index) => (
+          <div
+            key={index}
+            className={`bg-custom-gradient-0 py-4 flex justify-between px-4 items-center gap-4 border rounded-lg shadow-md h-[83px] w-[346px] overflow-hidden ${
+              selectedDiet === diet.name
+                ? "bg-violet-600 text-white"
+                : "bg-white text-gray-700"
+            } cursor-pointer`}
+            onClick={() => setSelectedDiet(diet.name)}
+          >
+            <img src={diet.icon} alt={`${diet.name} Icon`} className="w-1/4" />
+            <p className="block font-medium py-4 px-4 text-white">{diet.name}</p>
+          </div>
+        ))}
       </div>
+
+      <Next label="Next" link="/health" />
     </div>
+  );
+};
 
-
-    </div>
-  )
-}
-
-export default DietPreferences
+export default DietPreferences;
