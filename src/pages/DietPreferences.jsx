@@ -19,19 +19,19 @@ const DietPreferences = () => {
     <Navbar label="Diet Type" link="/pf1" />
 
       {/* Diet Options */}
-      <div className="grid md:grid-cols-2 gap-4 p-4">
+      <div className="grid md:grid-cols-1 gap-2 p-4">
         {diets.map((diet, index) => (
           <div
             key={index}
-            className={`bg-custom-gradient-0 py-4 flex justify-between px-4 items-center gap-4 border rounded-lg shadow-md h-[83px] w-[346px] overflow-hidden ${
+            className={`bg-custom-gradient-0 py-4 flex justify-between px-2 items-center gap-4 border rounded-lg shadow-md h-[83px] w-[346px] overflow-hidden ${
               selectedDiet === diet.name
                 ? "bg-violet-600 text-white"
                 : "bg-white text-gray-700"
             } cursor-pointer`}
             onClick={() => setSelectedDiet(diet.name)}
           >
-            <img src={diet.icon} alt={`${diet.name} Icon`} className="w-1/4" />
-            <p className="block font-medium py-4 px-4 text-white">{diet.name}</p>
+            <img src={diet.icon} alt={`${diet.name} Icon`} className="w-1/2" />
+            <p className="block font-semibold py-4 px-4 text-white">{diet.name}</p>
           </div>
         ))}
       </div>

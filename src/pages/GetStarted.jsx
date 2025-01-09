@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { logo } from "../assets/images";
 import Next from "../components/button";
 
@@ -14,9 +15,8 @@ const GetStarted = () => {
       </div>``
 
       {/* Bottom Section */}
-      <div className="w-[337px] px-4 mb-10">
-        <Next label="Get Started" link="/get-started" />
-        
+      <div className="w-[337px] px-2 mb-10">
+        <Next label="Get Started" link="/get-started2" />
       </div>
     </div>
   );

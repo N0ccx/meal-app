@@ -15,7 +15,6 @@ const CulturalPreferences = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
   };
 
   useEffect(() => {
@@ -30,7 +29,10 @@ const CulturalPreferences = () => {
       {/* Navbar */}
       <Navbar label="Cultural Preferences" link="/ph1" />
 
-      <form onSubmit={handleSubmit} className="flex flex-col items-center px-4 mt-4 space-y-6">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col items-center px-4 mt-4 space-y-6"
+      >
         {/* Country Selection */}
         <div className="w-full max-w-md">
           <label className="block mb-2 text-sm font-semibold text-gray-600">
@@ -118,12 +120,7 @@ const CulturalPreferences = () => {
         />
       </form>
 
-      {/* Next Button */}
-      <div className="flex justify-center items-center w-full mt-4">
-        <div className="w-[430px]">
-          <Next label="Next" link="/diet" />
-        </div>
-      </div>
+      <Next label="Next" link="/diet" />
     </div>
   );
 };
