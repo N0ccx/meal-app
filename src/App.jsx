@@ -14,17 +14,18 @@ import KitchenPage from "./pages/Kitchen.jsx";
 import Dashboard1 from "./pages/Dashboard.jsx";
 import MyTools from "./pages/Pantry.jsx";
 import ForgotPassword from "./pages/ForgotPassword.jsx";
+import { ImageProvider } from "./context/ImageContext.jsx";
 
 function App() {
   return (
-    
+    <ImageProvider>
       <Routes>
         <Route path="/" element={<OpeningPage />} />
         <Route path="/get-started" element={<GetStarted />} />
         <Route path="/get-started2" element={<GetStarted2 />} />
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<Login />} />
-        <Route path="/diet" element={<DietPreferences/>} />
+        <Route path="/diet" element={<DietPreferences />} />
         <Route path="/pf1" element={<CulturalPref2 />} />
         <Route path="/health" element={<Health />} />
         <Route path="/ph1" element={<PhysicalAttributes />} />
@@ -34,7 +35,7 @@ function App() {
         <Route path="/tools" element={<MyTools />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
-    
+    </ImageProvider>
   );
 }
 

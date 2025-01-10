@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import Navbar from "../components/NavBar";
 import Next from "../components/button";
 import SelectionGroup from "../components/SelectionGroup";
 
@@ -18,13 +18,7 @@ const PhysicalAttributes = () => {
   return (
     <div className="flex flex-col h-screen bg-gray-100">
       {/* Navbar */}
-      <div className="flex items-center justify-between px-4 py-3 bg-gray-200">
-        <Link to="/get-started" className="text-lg font-semibold text-gray-600">
-          &#8592;
-        </Link>
-        <h2 className="text-lg font-bold text-gray-800">Physical Attributes</h2>
-        <div></div>
-      </div>
+      <Navbar label="Physical Attributes" link="/register" />
 
       <form className="flex flex-col items-center px-4 mt-4 space-y-6">
         {/* Biological Sex */}
@@ -33,6 +27,7 @@ const PhysicalAttributes = () => {
           options={["Female", "Male", "Others"]}
           selectedOption={selectedSex}
           onSelect={setSelectedSex}
+          columns={3}
         />
 
         {/* Age */}
@@ -120,6 +115,7 @@ const PhysicalAttributes = () => {
           options={["Low", "Medium", "High"]}
           selectedOption={bodyFat}
           onSelect={setBodyFat}
+          columns={3}
         />
       </form>
       <Next label="Next" link="/pf1" />

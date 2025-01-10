@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { logo, eyeIcon, eyeOffIcon } from "../assets/images";
+import { logo } from "../assets/images";
 import Next from "../components/button";
 import InputField from "../components/InputField";
 import PasswordField from "../components/PasswordField";

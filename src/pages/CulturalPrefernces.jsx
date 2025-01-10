@@ -85,6 +85,7 @@ const CulturalPreferences = () => {
           options={["Often", "Sometimes", "Always"]}
           selectedOption={regionOnly}
           onSelect={setRegionOnly}
+          columns={3}
         />
 
         {/* Cooking Frequency */}
@@ -93,6 +94,7 @@ const CulturalPreferences = () => {
           options={["Never", "Sometimes", "Always"]}
           selectedOption={frequency}
           onSelect={setFrequency}
+          columns={3}
         />
 
         {/* Cooking Skill */}
@@ -101,6 +103,7 @@ const CulturalPreferences = () => {
           options={["Beginner", "Intermediate", "Advanced"]}
           selectedOption={cookingSkill}
           onSelect={setCookingSkill}
+          columns={3}
         />
 
         {/* Budget */}
@@ -109,6 +112,7 @@ const CulturalPreferences = () => {
           options={["Small", "Okay", "Large"]}
           selectedOption={budget}
           onSelect={setBudget}
+          columns={3}
         />
 
         {/* Religious Restrictions */}
@@ -117,6 +121,7 @@ const CulturalPreferences = () => {
           options={["Islam (Halal)", "Judaism (Kosher)"]}
           selectedOption={religion}
           onSelect={setReligion}
+          columns={2}
         />
       </form>
 

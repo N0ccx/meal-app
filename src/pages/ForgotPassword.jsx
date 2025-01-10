@@ -22,7 +22,7 @@ const ForgotPassword = () => {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
           />
-          <div className="pt-4">
+          <div className="pt-8">
             <Next label="Recover your account" link="/pf1" />
           </div>
         </form>

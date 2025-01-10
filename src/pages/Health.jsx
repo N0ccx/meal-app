@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import Next from "../components/button";
+import Navbar from "../components/NavBar";
+import SelectionGroup from "../components/SelectionGroup";
 
 const HealthPreferences = () => {
   const [allergies, setAllergies] = useState([
@@ -17,15 +18,27 @@ const HealthPreferences = () => {
     "Nightshade",
   ]);
   const [selectedAllergies, setSelectedAllergies] = useState([]);
-  const [selectedCondition, setSelectedCondition] = useState("");
+  const [selectedConditions, setSelectedConditions] = useState([]);
   const [isAddingNew, setIsAddingNew] = useState(false);
   const [newAllergy, setNewAllergy] = useState("");
 
   const toggleAllergy = (allergy) => {
     if (selectedAllergies.includes(allergy)) {
-      setSelectedAllergies(selectedAllergies.filter((item) => item !== allergy));
+      setSelectedAllergies(
+        selectedAllergies.filter((item) => item !== allergy)
+      );
     } else if (selectedAllergies.length < 5) {
       setSelectedAllergies([...selectedAllergies, allergy]);
+    }
+  };
+
+  const toggleCondition = (condition) => {
+    if (selectedConditions.includes(condition)) {
+      setSelectedConditions(
+        selectedConditions.filter((item) => item !== condition)
+      );
+    } else if (selectedConditions.length < 1) {
+      setSelectedConditions([...selectedConditions, condition]);
     }
   };
 
@@ -37,83 +50,78 @@ const HealthPreferences = () => {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="flex flex-col h-screen bg-gray-100">
-      {/* Navbar */}
-      <div className="flex items-center justify-between px-4 py-3 bg-gray-200">
-        <Link to="/diet" className="text-lg font-semibold text-gray-600">
-          &#8592;
-        </Link>
-        <h2 className="text-lg font-bold text-gray-800">Health Preferences</h2>
-        <button className="text-sm text-violet-600">Save</button>
-      </div>
+      <Navbar label="Health Preferences" link="/diet" />
 
-      {/* Allergies Section */}
-      <div className="flex-grow p-4">
-        <h3 className="mb-2 text-sm font-semibold text-gray-700">Allergies</h3>
-        <div className="flex flex-wrap gap-2">
-          {allergies.map((allergy, index) => (
-            <button
-              key={index}
-              className={`flex-grow h-[36px] border rounded-md text-sm font-medium ${
-                selectedAllergies.includes(allergy)
-                  ? "bg-violet-600 text-white"
-                  : "bg-white text-gray-700"
-              } hover:shadow-md`}
-              onClick={() => toggleAllergy(allergy)}
-            >
-              {allergy}
-            </button>
-          ))}
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col items-center justify-center px-4 mt-4 space-y-6 flex-grow"
+      >
+        {/* Allergies Section */}
+        <div className="w-full max-w-md">
+          <SelectionGroup
+            label="Allergies"
+            options={allergies}
+            selectedOption={selectedAllergies}
+            onSelect={toggleAllergy}
+            columns={4} // Specify 4 items per row
+          />
+
           {/* Add New Button */}
           {isAddingNew ? (
-            <div className="flex items-center w-[104px] h-[36px]">
+            <div className="flex items-center mt-2">
               <input
                 type="text"
-                className="w-full p-1 text-sm border rounded-md focus:outline-none"
+                className="flex-grow px-2 py-1 text-sm border rounded-md focus:outline-none"
                 placeholder="New Allergy"
                 value={newAllergy}
                 onChange={(e) => setNewAllergy(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleAddNew()}
               />
-              <button className="ml-2 text-violet-600" onClick={handleAddNew}>
-                ✔️
+              <button
+                type="button"
+                className="ml-2 px-3 py-1 text-sm font-medium text-white bg-violet-600 rounded-md hover:bg-violet-700"
+                onClick={handleAddNew}
+              >
+                Add
               </button>
             </div>
           ) : (
             <button
-              className="flex-grow h-[36px] px-4 border rounded-md bg-white text-gray-700 hover:shadow-md border-gray-300"
+              type="button"
+              className="mt-2 px-3 py-2 text-sm font-medium text-gray-700 border border-gray-300 rounded-md bg-white hover:shadow-md"
               onClick={() => setIsAddingNew(true)}
             >
               Add New
             </button>
           )}
         </div>
-      </div>
 
-      {/* Health Conditions Section */}
-      <div className="flex-grow p-4">
-        <h3 className="mb-2 text-sm font-semibold text-gray-700">Health Conditions</h3>
-        <div className="flex flex-wrap gap-2">
-          {["Diabetes", "Heart Condition", "Hypertension", "Immune Condition"].map(
-            (condition, index) => (
-              <button
-                key={index}
-                className={`flex-grow h-[36px] border rounded-md text-sm font-medium ${
-                  selectedCondition === condition
-                    ? "bg-violet-600 text-white"
-                    : "bg-white text-gray-700"
-                } hover:shadow-md`}
-                onClick={() => setSelectedCondition(condition)}
-              >
-                {condition}
-              </button>
-            )
-          )}
+        {/* Health Conditions Section */}
+        <div className="w-full max-w-md">
+          <SelectionGroup
+            label="Health Conditions"
+            options={[
+              "Diabetes",
+              "Heart Condition",
+              "Hypertension",
+              "Immune Condition",
+            ]}
+            selectedOption={selectedConditions}
+            onSelect={toggleCondition}
+            columns={2} // Specify 2 items per row
+          />
         </div>
-      </div>
+      </form>
 
-      <Next label="Next" link="/dashboard" />
+      <div className="mt-auto px-4 pb-8">
+        <Next label="Next" link="/dashboard" />
+      </div>
     </div>
   );
 };
