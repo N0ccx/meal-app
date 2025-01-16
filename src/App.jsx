@@ -14,28 +14,29 @@ import KitchenPage from "./pages/Kitchen.jsx";
 import Dashboard1 from "./pages/Dashboard.jsx";
 import MyTools from "./pages/Pantry.jsx";
 import ForgotPassword from "./pages/ForgotPassword.jsx";
-import { ImageProvider } from "./context/ImageContext.jsx";
+import Nutrition from "./pages/Nutrition.jsx";
+import Preferences from "./pages/Preferences.jsx";
 
 function App() {
   return (
-    <ImageProvider>
-      <Routes>
-        <Route path="/" element={<OpeningPage />} />
-        <Route path="/get-started" element={<GetStarted />} />
-        <Route path="/get-started2" element={<GetStarted2 />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/signin" element={<Login />} />
-        <Route path="/diet" element={<DietPreferences />} />
-        <Route path="/pf1" element={<CulturalPref2 />} />
-        <Route path="/health" element={<Health />} />
-        <Route path="/ph1" element={<PhysicalAttributes />} />
-        <Route path="/meal-plan" element={<MealPlan />} />
-        <Route path="/dashboard" element={<Dashboard1 />} />
-        <Route path="/kitchen" element={<KitchenPage />} />
-        <Route path="/tools" element={<MyTools />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-      </Routes>
-    </ImageProvider>
+    <Routes>
+      <Route path="/" element={<OpeningPage />} />
+      <Route path="/get-started" element={<GetStarted />} />
+      <Route path="/get-started2" element={<GetStarted2 />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/signin" element={<Login />} />
+      <Route path="/diet" element={<DietPreferences />} />
+      <Route path="/pf1" element={<CulturalPref2 />} />
+      <Route path="/health" element={<Health />} />
+      <Route path="/ph1" element={<PhysicalAttributes />} />
+      <Route path="/meal-plan" element={<MealPlan />} />
+      <Route path="/dashboard" element={<Dashboard1 />} />
+      <Route path="/nutrition" element={<Nutrition />} />
+      <Route path="/kitchen" element={<KitchenPage />} />
+      <Route path="/preferences" element={<Preferences />} />
+      <Route path="/tools" element={<MyTools />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+    </Routes>
   );
 }
 

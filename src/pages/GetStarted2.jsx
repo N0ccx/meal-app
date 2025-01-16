@@ -2,6 +2,7 @@ import React from "react";
 import Social from "../components/socialandbuttons";
 import { logo} from "../assets/images";
 import { Link } from "react-router-dom";
+import Next from "../components/button";
 
 const GetStarted2 = () => {
   return (
@@ -14,12 +15,7 @@ const GetStarted2 = () => {
         </p>
       </div>
     <div className="w-[337px] space-y-4 mt-2">
-      <Link
-          to="/register"
-          className="block w-full bg-custom-gradient text-white font-semibold text-center py-2 rounded-md hover:bg-red-700 transition"
-        >
-          Sign Up with Email
-        </Link>
+     <Next label="Sign up with Email" link="/register" />
       <Social />
       <p className="text-center text-gray-600 text-sm mt-6">
           Already a Member?{" "}

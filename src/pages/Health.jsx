@@ -62,17 +62,16 @@ const HealthPreferences = () => {
         onSubmit={handleSubmit}
         className="flex flex-col items-center justify-center px-4 mt-4 space-y-6 flex-grow"
       >
-        {/* Allergies Section */}
+
         <div className="w-full max-w-md">
           <SelectionGroup
             label="Allergies"
             options={allergies}
             selectedOption={selectedAllergies}
             onSelect={toggleAllergy}
-            columns={4} // Specify 4 items per row
+            columns={4}
           />
 
-          {/* Add New Button */}
           {isAddingNew ? (
             <div className="flex items-center mt-2">
               <input
@@ -101,8 +100,6 @@ const HealthPreferences = () => {
             </button>
           )}
         </div>
-
-        {/* Health Conditions Section */}
         <div className="w-full max-w-md">
           <SelectionGroup
             label="Health Conditions"
@@ -114,7 +111,7 @@ const HealthPreferences = () => {
             ]}
             selectedOption={selectedConditions}
             onSelect={toggleCondition}
-            columns={2} // Specify 2 items per row
+            columns={2}
           />
         </div>
       </form>

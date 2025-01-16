@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { logo } from "../assets/images";
 import Next from "../components/button";
@@ -13,10 +13,20 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [receivePromotions, setReceivePromotions] = useState(false);
+  const [InputNameError, setInputNameError] = useState("");
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
+
+  useEffect(() =>{
+    if (username.length < 3) {
+      setInputNameError("Name must be more than three characters long!")
+    }
+    else {
+      setInputNameError('')
+    }
+  })
 
   return (
     <div className="flex flex-col justify-between items-center h-screen bg-gray-100">
@@ -32,6 +42,7 @@ const Register = () => {
 
       {/*Form */}
       <form className="w-[351px] max-w-md space-y-4 border-none outline-none">
+        {InputNameError && <p>{InputNameError}</p>}
       <InputField
             id="username"
             type="text"

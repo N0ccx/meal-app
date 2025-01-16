@@ -14,6 +14,7 @@ const Login = () => {
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
+  
 
   return (
     <>
@@ -55,13 +56,13 @@ const Login = () => {
         </form>
         <button
           type="submit"
-          className="w-[337px] py-2 text-white bg-custom-gradient rounded-md hover:opacity-90 mt-8"
+          className="block w-[337px] py-2  text-white bg-custom-gradient rounded-md hover:opacity-90 mt-8"
         >
           Login
         </button>
         <Link
           to="/forgot-password"
-          className="block text-sm font-semibold text-custom-gradient mt-6"
+          className="block text-sm font-bold text-custom-gradient mt-6"
         >
           Forgot Password
         </Link>

@@ -1,24 +1,14 @@
 import React, { useState } from "react";
-import { vegan, vegetarian, pescatarian, carnivore, balanced, keto } from "../assets/images";
+import { diets } from "../assets/images";
 import Next from "../components/button";
 import Navbar from "../components/NavBar";
 
 const DietPreferences = () => {
-  const diets = [
-    { name: "Balanced", icon: balanced },
-    { name: "Keto", icon: keto },
-    { name: "Vegetarian", icon: vegetarian },
-    { name: "Pescatarian", icon: pescatarian },
-    { name: "Vegan", icon: vegan },
-    { name: "Carnivore", icon: carnivore },
-  ];
   const [selectedDiet, setSelectedDiet] = useState("");
 
   return (
     <div className="flex flex-col h-screen bg-gray-100">
       <Navbar label="Diet Type" link="/pf1" />
-
-      {/* Center Diet Options */}
       <div className="flex flex-1 items-center justify-center">
         <div className="grid md:grid-cols-1 gap-2 p-4">
           {diets.map((diet, index) => (
@@ -31,7 +21,11 @@ const DietPreferences = () => {
               } cursor-pointer`}
               onClick={() => setSelectedDiet(diet.name)}
             >
-              <img src={diet.icon} alt={`${diet.name} Icon`} className="w-1/2" />
+              <img
+                src={diet.icon}
+                alt={`${diet.name} Icon`}
+                className="w-1/2"
+              />
               <p className="block font-semibold py-4 px-4 text-white">
                 {diet.name}
               </p>
