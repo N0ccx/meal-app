@@ -13,14 +13,12 @@ const Navbar = ({ label, icon, time, tokens = 10, showNotification = true }) => 
 
       {showNotification && (
         <div className="flex items-center gap-4">
-          {/* Tokens */}
+
           <div className="flex items-center text-white bg-custom-gradient px-3 py-1 rounded-md font-semibold">
             <span>{tokens}</span>
             <BsStars className="ml-1 text-white" />
           </div>
-
-          {/* Notification Icon */}
-          <div className="relative">
+          <button className="relative">
             <img
               src={notification}
               alt="Notification"
@@ -29,7 +27,7 @@ const Navbar = ({ label, icon, time, tokens = 10, showNotification = true }) => 
             <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">
               3
             </span>
-          </div>
+          </button>
         </div>
       )}
     </div>

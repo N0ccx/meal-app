@@ -1,0 +1,163 @@
+{% extends "users/base.html" %}
+{% load static %}
+{% block title %}Login Page{% endblock title %}
+
+{% block content %}
+<!-- Include Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+    .jumbotron {
+        padding: 2rem;
+        background: white;
+    }
+    .lead {
+        font-weight: 400;
+        font-size: 18px;
+        margin-bottom: 1rem;
+    }
+    .form-group label {
+        font-weight: 600;
+        font-size: 14px;
+    }
+    .form-control {
+        height: 50px;
+        font-size: 16px;
+        border-radius: 4px;
+    }
+    .btn {
+        height: 50px;
+        font-size: 16px;
+        border-radius: 4px;
+    }
+    .rectangle {
+        width: 337px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        padding-left: 10px;
+        background: white;
+    }
+    .rectangle img {
+        max-height: 30px;
+        margin-right: 10px;
+    }
+    .social-login-buttons {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 15px; /* Space between buttons */
+    align-items: center; /* Center buttons on the page */
+    }
+    
+    .social-login-btn {
+        display: flex;
+        align-items: center; /* Align icon and text vertically */
+        justify-content: flex-start; /* Keep icon on the left */
+        width: 337px; /* Button width */
+        height: 50px; /* Button height */
+        border: 0.7px solid #76787C; /* Inner border */
+        border-radius: 25px; /* Rounded rectangle corners */
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        color: #000; /* Text color */
+        text-decoration: none; /* Remove underline */
+        background-color: #fff; /* Button background */
+        padding: 0 15px; /* Space inside button */
+        box-sizing: border-box; /* Ensure padding fits within width */
+        gap: 10px; /* Space between icon and text */
+    }
+    
+    .social-login-btn:hover {
+        background-color: #f5f5f5; /* Hover background */
+    }
+    
+    .icon-left {
+        flex-shrink: 0; /* Prevent the icon from resizing */
+        width: 20px; /* Fixed icon width */
+        height: 20px; /* Fixed icon height */
+    }
+    
+    .social-text {
+        flex-grow: 1; /* Take up remaining space */
+        text-align: center; /* Center text horizontally */
+        line-height: 50px; /* Center text vertically within the button */
+    }
+    
+    
+</style>
+
+<div class="jumbotron text-center">
+    <!-- Company Logo -->
+    <div class="text-center mb-4">
+        <img src="{% static 'images/logo.png' %}" alt="ClevaCook Logo" style="max-height: 100px;">
+    </div>
+
+    <!-- Centered Text -->
+    <p class="lead">AI Powered <b>Nutrition &</b> Meal Prep Partner</p>
+
+    <!-- Form -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <div class="card shadow-lg border-0 rounded-lg">
+                    <div class="card-body">
+                        <h3 class="text-center mb-4">Login</h3>
+                        <form method="POST">
+                            {% csrf_token %}
+                            
+                            <!-- Email Field -->    
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                {{ form.email }}
+                            </div>
+
+                            <!-- Password Field -->
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                {{ form.password }}
+                            </div>
+
+                            <!-- Login Button -->
+                            <button type="submit" class="btn btn-danger btn-block">Login</button>
+
+                            <!-- Forgot Password -->
+                            <div class="text-center mt-3">
+                                <a href="{% url 'password_reset' %}" class="text-danger">Forgot Password</a>
+                            </div>
+
+                            <!-- Signup Link -->
+                            <div class="text-center mt-2">
+                                <small>Don't have an account? <a href="{% url 'register' %}" class="text-primary">Sign Up</a></small>
+                            </div>
+
+                            <hr>
+
+                            <!-- Login with Social Providers -->
+                            <div class="social-login-buttons">
+                            <a href="#" class="social-login-btn">
+                                <img src="{% static 'images/google-icon.png' %}" alt="Google Logo" class="icon-left">Login with Google
+                            </a>
+                            <a href="#" class="social-login-btn">
+                                <img src="{% static 'images/fackbook-icon.png' %}" alt="Facebook Logo" class="icon-left"> Login with Facebook
+                            </a>
+                            <a href="#" class="social-login-btn">
+                                <img src="{% static 'images/apple-icon.png' %}" alt="Apple Logo" class="icon-left">Login with Apple
+                            </a>
+                        </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

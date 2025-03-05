@@ -16,11 +16,10 @@ import american from './american.png';
 import british from './british.png';
 import nigerian from './nigerian.png';
 import fruits from './fruits and veggies.png';
-import protein from './high protein.png';
 import brunch from './brunch.png';
 import lowCarbsImage from './low-carbs.png';
 import fruitsVeggiesImage from './fruits and veggies.png';
-import highProteinImage from './high protein.png';
+import highProteinImage from './highProtein.png';
 import chefsChoiceImage from './sweet-healthy.png';
 import seasonalFavoritesImage from './drinks-cocktails.png';
 import quickBitesImage from './quick-bites.png';
@@ -37,6 +36,7 @@ import kitchen from './app/my kitchen-icon.png'
 import prefs from './app/preferences-icon.png'
 import today from './app/today-icon.png'
 import personalize from './Personalize.png'
+import character from './character walking somewhere.png'
 
 
 
@@ -60,7 +60,6 @@ export {
   british,
   nigerian,
   fruits,
-  protein,
   brunch,
   lowCarbsImage,
   fruitsVeggiesImage,
@@ -76,6 +75,7 @@ export {
   kitchen,
   nutrition,
   personalize,
+  character,
 };
 
 
@@ -88,26 +88,34 @@ export const recipes = {
     { name: "American", imageSrc: american },
     { name: "American", imageSrc: american },
     { name: "American", imageSrc: american },
-    { name: "American", imageSrc: american },
-    { name: "American", imageSrc: american },
-    { name: "American", imageSrc: american },
-    { name: "American", imageSrc: american },
-    { name: "American", imageSrc: american },
-    { name: "American", imageSrc: american },
-    { name: "American", imageSrc: american },
-    { name: "American", imageSrc: american },
-    { name: "American", imageSrc: american },
-    { name: "American", imageSrc: american },
+    { name: "Nigerian", imageSrc: nigerian },
+    { name: "British", imageSrc: british }, 
+    { name: "Nigerian", imageSrc: nigerian },
+    { name: "British", imageSrc: british },
   ],
 
   healthSpecific: [
     { name: "Low Carbs", imageSrc: lowCarbsImage },
     { name: "Fruits & Veggies", imageSrc: fruitsVeggiesImage },
     { name: "High Protein", imageSrc: highProteinImage },
+    { name: "Fruits & Veggies", imageSrc: fruitsVeggiesImage },
+    { name: "High Protein", imageSrc: highProteinImage },
+    { name: "Fruits & Veggies", imageSrc: fruitsVeggiesImage },
+    { name: "High Protein", imageSrc: highProteinImage },
+    { name: "Fruits & Veggies", imageSrc: fruitsVeggiesImage },
+    { name: "High Protein", imageSrc: highProteinImage },
   ],
 
   clevaSpecials: [
     { name: "Sweet & Healthy", imageSrc: chefsChoiceImage },
+    { name: "Seasonal Favorites", imageSrc: seasonalFavoritesImage },
+    { name: "Quick Bites", imageSrc: quickBitesImage },
+    { name: "Seasonal Favorites", imageSrc: seasonalFavoritesImage },
+    { name: "Quick Bites", imageSrc: quickBitesImage },
+    { name: "Seasonal Favorites", imageSrc: seasonalFavoritesImage },
+    { name: "Quick Bites", imageSrc: quickBitesImage },
+    { name: "Seasonal Favorites", imageSrc: seasonalFavoritesImage },
+    { name: "Quick Bites", imageSrc: quickBitesImage },
     { name: "Seasonal Favorites", imageSrc: seasonalFavoritesImage },
     { name: "Quick Bites", imageSrc: quickBitesImage },
   ],
@@ -121,8 +129,6 @@ export const meals = [
         cost: "N150",
         prepTime: "5-10 min",
         rating: "⭐ 4.3",
-        budget: ['Okay','Small', 'Large'],
-        category: []
       },
       imageSrc: popcorn,
     },
@@ -132,7 +138,8 @@ export const meals = [
         kal: "300",
         cost: "N350",
         prepTime: "30-40 min",
-        rating: "⭐ 4.8",
+        rating: "⭐ 4.8",        budget: ['Okay','Small', 'Large'],
+        category: []
       },
       imageSrc: popcorn,
     },
@@ -159,15 +166,14 @@ export const diets = [
   ];
 
   export const kitchenItems = [
-    { name: "My Store/Pantry", imageSrc: storePantry },
-    { name: "Cookware", imageSrc: cookware },
-    { name: "Utensils & Appliances", imageSrc: utensils },
-    { name: "Grocery List", imageSrc: grocery },
-    { name: "Favorite Recipes", imageSrc: favRecipe },
+    { name: "My Store/Pantry", imageSrc: storePantry, link: "/pantry" },
+    { name: "Cookware, Utensils & Appliances", imageSrc: cookware, link: "/tools" },
+    { name: "Grocery List", imageSrc: grocery, link: "/grocery" },
+    { name: "Favorite Recipes", imageSrc: favRecipe, link: "/fav-recipes" },
   ];
 
   export const navItems = [
-    { label: "Today", icon: today, link: "/today"},
+    { label: "Today", icon: today, link: "/dashboard"},
     { label: "Meal Plan", icon: meal, link: "/meal-plan"},
     { label: "Preferences", icon:prefs, link: "/preferences"},
     { label: "Kitchen", icon:kitchen, link: "/kitchen"},
@@ -196,4 +202,16 @@ export const diets = [
 export const cookwareItems = ["Frying Pan", "Saucepan", "Stockpot", "Wok", "Griddle", "Roasting Pan", "Skillet", "Pressure Cooker", "Small Oven", "Stock Pot","Duet Oven", "Rice Cooker"];
 export const utensilsItems = ["Spatula", "Whisk", "Ladle", "Tongs", "Peeler", "Silicone", "Rolling Pin", "Potato Masher", "Spotted Spoon", "Garlic Press"];
 export const knivesItems = ["Chef Knife", "Paring Knife", "Bread Knife", "Santoku Knife", "Cleaver", "Kitchen Scissors", "Mandoline Slicer", "Meat Tenderizer"];
+
+
+export const days = [
+  { name: "Day 1", active: true },
+  { name: "Day 2", active: true },
+  { name: "Day 3", active: true },
+  { name: "Day 4", active: true },
+  { name: "Day 5", active: false },
+  { name: "Day 6", active: false },
+  { name: "Token", active: true, isToken: true },
+];
+
 

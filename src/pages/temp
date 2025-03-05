@@ -1,92 +1,39 @@
-{
-  "recipes": [
-    {
-      "id": 1,
-      "name": "Vegetable & Potato Stir-Fry",
-      "category": "Breakfast",
-      "description": "A delicious stir-fry made with fresh vegetables and potatoes.",
-      "image": "/images/vegetable-potato.png",
-      "nutrition": {
-        "kal": 250,
-        "carbs": "45g",
-        "proteins": "8g",
-        "fats": "5g",
-        "cost": "N233",
-        "prepTime": "15-20 min",
-        "rating": 4.5
-      },
-      "ingredients": [
-        { "name": "Potatoes", "quantity": 2, "unit": "pcs" },
-        { "name": "Carrots", "quantity": 1, "unit": "pcs" },
-        { "name": "Green Beans", "quantity": 100, "unit": "g" },
-        { "name": "Soy Sauce", "quantity": 2, "unit": "tbsp" },
-        { "name": "Olive Oil", "quantity": 1, "unit": "tbsp" }
-      ],
-      "instructions": [
-        "Wash and chop all vegetables.",
-        "Heat olive oil in a pan over medium heat.",
-        "Add potatoes and cook until golden brown.",
-        "Add carrots and green beans; stir-fry for 5 minutes.",
-        "Add soy sauce and cook for another 2 minutes."
-      ],
-      "tags": ["vegetarian", "low-fat", "quick-meal"],
-      "tools": ["Frying Pan", "Spatula"],
-      "servings": 2,
-      "type": "Meal",
-      "culturalPreference": {
-        "region": "Western",
-        "religion": "Halal",
-        "budget": "Okay"
-      },
-      "healthPreferences": {
-        "allergies": ["Soy"],
-        "conditions": ["Diabetes"]
-      },
-      "tips": "Serve hot with a side of bread or rice."
-    },
-    {
-      "id": 2,
-      "name": "Eba & Egusi Soup",
-      "category": "Lunch",
-      "description": "A traditional Nigerian dish made with melon seeds and served with Eba.",
-      "image": "/images/eba-egusi.png",
-      "nutrition": {
-        "kal": 300,
-        "carbs": "50g",
-        "proteins": "15g",
-        "fats": "10g",
-        "cost": "N350",
-        "prepTime": "30-40 min",
-        "rating": 4.8
-      },
-      "ingredients": [
-        { "name": "Egusi (Melon Seeds)", "quantity": 1, "unit": "cup" },
-        { "name": "Palm Oil", "quantity": 2, "unit": "tbsp" },
-        { "name": "Spinach", "quantity": 200, "unit": "g" },
-        { "name": "Crayfish", "quantity": 1, "unit": "tbsp" },
-        { "name": "Eba", "quantity": 200, "unit": "g" }
-      ],
-      "instructions": [
-        "Grind egusi seeds and mix with water to form a paste.",
-        "Heat palm oil in a pot and add crayfish.",
-        "Add egusi paste and stir until it starts to fry.",
-        "Add spinach and cook until tender.",
-        "Serve with Eba."
-      ],
-      "tags": ["traditional", "Nigerian", "hearty-meal"],
-      "tools": ["Cooking Pot", "Spatula"],
-      "servings": 4,
-      "type": "Meal",
-      "culturalPreference": {
-        "region": "African",
-        "religion": "Halal",
-        "budget": "Okay"
-      },
-      "healthPreferences": {
-        "allergies": ["None"],
-        "conditions": ["Hypertension"]
-      },
-      "tips": "Use fresh melon seeds for a richer flavor."
-    }
-  ]
-}
+const Tools = () => {
+  const [cookwareItems, setCookwareItems] = useState([
+    "Frying Pan",
+    "Saucepan",
+    "Stockpot",
+    "Wok",
+    "Griddle",
+    "Roasting Pan",
+    "Skillet",
+    "Pressure Cooker",
+    "Small Oven",
+    "Stock Pot",
+    "Duet Oven",
+    "Rice Cooker",
+  ]);
+
+  const [utensilsItems, setUtensilsItems] = useState([
+    "Spatula",
+    "Whisk",
+    "Ladle",
+    "Tongs",
+    "Peeler",
+    "Silicone",
+    "Rolling Pin",
+    "Potato Masher",
+    "Spotted Spoon",
+    "Garlic Press",
+  ]);
+
+  const [knivesItems, setKnivesItems] = useState([
+    "Chef Knife",
+    "Paring Knife",
+    "Bread Knife",
+    "Santoku Knife",
+    "Cleaver",
+    "Kitchen Scissors",
+    "Mandoline Slicer",
+    "Meat Tenderizer",
+  ]);

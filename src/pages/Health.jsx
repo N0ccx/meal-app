@@ -52,10 +52,10 @@ const HealthPreferences = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  };
+  }; 
 
   return (
-    <div className="flex flex-col h-screen bg-gray-100">
+    <div className="flex flex-col h-screen bg-white">
       <Navbar label="Health Preferences" link="/diet" />
 
       <form
@@ -84,7 +84,7 @@ const HealthPreferences = () => {
               />
               <button
                 type="button"
-                className="ml-2 px-3 py-1 text-sm font-medium text-white bg-violet-600 rounded-md hover:bg-violet-700"
+                className="ml-2 px-3 py-1 text-sm font-medium text-white bg-custom-gradient rounded-md hover:bg-violet-700"
                 onClick={handleAddNew}
               >
                 Add

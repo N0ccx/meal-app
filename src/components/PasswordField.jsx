@@ -21,7 +21,7 @@ const PasswordField = ({
       onChange={onChange}
       placeholder={placeholder}
       required
-      className="w-full px-3 py-2 mt-1 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-red-600"
+      className="w-full border-b border-gray-300 text-sm focus:outline-none focus:border-red-600"
     />
     <img
       src={isVisible ? eyeOffIcon : eyeIcon}

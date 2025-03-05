@@ -12,7 +12,7 @@ const BottomNav = () => (
           to={link}
           className="flex flex-col items-center space-y-1"
         >
-          <img src={icon} alt={label} className="w-1/2 h-6 hover:text-custom-gradient" />
+          <img src={icon} alt={label} className="w-1/2 h-6 hover:bg-red-400" />
           <p className="text-xs text-gray-600">{label}</p>
         </Link>
       ))}

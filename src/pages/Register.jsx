@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logo } from "../assets/images";
 import Next from "../components/button";
 import InputField from "../components/InputField";
@@ -14,11 +14,22 @@ const Register = () => {
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [receivePromotions, setReceivePromotions] = useState(false);
   const [InputNameError, setInputNameError] = useState("");
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
 
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:5000/api/register", { email, password });
+      localStorage.setItem("token", response.data.token); // Store token in localStorage
+      navigate("/dashboard");
+    } catch (err) {
+      setError("Registration failed. Please try again.");
+    }
+  };
   useEffect(() =>{
     if (username.length < 3) {
       setInputNameError("Name must be more than three characters long!")
@@ -29,7 +40,7 @@ const Register = () => {
   })
 
   return (
-    <div className="flex flex-col justify-between items-center h-screen bg-gray-100">
+    <div className="flex flex-col items-center h-screen bg-white">
     <Navbar label="Create Account" link="/signin" />
 
       {/*Logo Section */}
@@ -41,7 +52,7 @@ const Register = () => {
       </div>
 
       {/*Form */}
-      <form className="w-[351px] max-w-md space-y-4 border-none outline-none">
+      <form onSubmit={handleRegister} className="w-[351px] max-w-md space-y-4 border-none outline-none">
         {InputNameError && <p>{InputNameError}</p>}
       <InputField
             id="username"
@@ -95,7 +106,7 @@ const Register = () => {
             id="promotions"
             checked={receivePromotions}
             onChange={(e) => setReceivePromotions(e.target.checked)}
-            className="justify-end w-4 h-4 text-violet-600 border-gray-300 rounded focus:ring-violet-600"
+            className="justify-end w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-600"
           />
           <label htmlFor="promotions" className="text-sm text-gray-600">
             Send me updates on promotional offers

@@ -15,17 +15,17 @@ const RecipeSection = ({ title, link, items }) => {
       {/* Items Grid */}
       <div className="grid grid-flow-col md:auto-cols-[150px] overflow-x-scroll gap-4 mt-4 px-4">
         {items.map((item, index) => (
-          <div
+          <button
             key={index}
-            className="items-center bg-white shadow"
+            className="flex flex-col items-center bg-white shadow rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-red-600"
           >
             <img
               src={item.imageSrc}
               alt={item.name}
-              className="w-30 h-30"
+              className="w-[141px] h-[96px] object-cover"
             />
-            <p className="text-sm font-medium text-gray-700">{item.name}</p>
-          </div>
+            <p className="text-sm font-medium text-gray-700 mt-2">{item.name}</p>
+          </button>
         ))}
       </div>
     </div>

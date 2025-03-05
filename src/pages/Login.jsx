@@ -1,27 +1,49 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logo } from "../assets/images";
 import Social from "../components/socialandbuttons";
 import InputField from "../components/InputField";
 import Navbar from "../components/NavBar";
 import PasswordField from "../components/PasswordField";
+import axios from "axios";
 
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
-  
+
+  const handleLogin = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+    try {
+      const response = await axios.post("http://localhost:5000/api/login", {
+        email,
+        password,
+      });
+
+      // Save the token in localStorage
+      localStorage.setItem("token", response.data.token);
+
+      // Redirect to the dashboard or another protected route
+      navigate("/dashboard");
+    } catch (err) {
+      setError("Invalid email or password. Please try again.");
+      console.error("Login error:", err);
+    }
+  };
 
   return (
     <>
-      <div className="flex flex-col justify-between items-center h-screen bg-gray-100">
-      <Navbar label="Login" link="/" />
+      <div className="flex flex-col justify-between items-center h-screen bg-white">
+        <Navbar label="Login" link="/get-started2" />
 
-        {/*Logo Section */}
+        {/* Logo Section */}
         <div className="flex flex-col items-center mt-6">
           <img
             src={logo}
@@ -33,8 +55,8 @@ const Login = () => {
           </p>
         </div>
 
-        {/*Form */}
-        <form className="w-[351px] max-w-md space-y-6">
+        {/* Form */}
+        <form className="w-[351px] max-w-md space-y-6" onSubmit={handleLogin}>
           <InputField
             id="email"
             type="email"
@@ -53,21 +75,28 @@ const Login = () => {
             toggleVisibility={togglePasswordVisibility}
             placeholder="Enter your password"
           />
+
+          {error && (
+            <p className="text-red-500 text-sm text-center">{error}</p>
+          )}
+
+          <button
+            type="submit"
+            className="block w-[337px] py-2 text-white bg-custom-gradient rounded-md hover:opacity-90 mt-8"
+          >
+            Login
+          </button>
         </form>
-        <button
-          type="submit"
-          className="block w-[337px] py-2  text-white bg-custom-gradient rounded-md hover:opacity-90 mt-8"
-        >
-          Login
-        </button>
+
         <Link
           to="/forgot-password"
           className="block text-sm font-bold text-custom-gradient mt-6"
         >
           Forgot Password
         </Link>
-        <div className="text-gray-600 text-center text-text-sm mt-6">
-          Don't have an Account? {"  "}
+
+        <div className="text-gray-600 text-center text-sm mt-6">
+          Don't have an Account?{" "}
           <Link
             to="/register"
             className="text-gray-600 font-semibold hover:underline"
@@ -75,7 +104,8 @@ const Login = () => {
             Sign up
           </Link>
         </div>
-        <div className="w-[337px] space-y-4 mt-2 bg-gray-100">
+
+        <div className="w-[337px] space-y-4 mt-2 bg-white">
           <Social />
         </div>
       </div>

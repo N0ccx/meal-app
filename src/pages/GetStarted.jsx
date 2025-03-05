@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { logo } from "../assets/images";
 import Next from "../components/button";
 
 const GetStarted = () => {
   return (
-    <div className="flex flex-col justify-between items-center h-screen bg-gray-100">
+    <div className="flex flex-col justify-between items-center h-screen bg-white">
       {/* Logo Section */}
       <div className="flex flex-col items-center mt-20">
         <img src={logo} alt="logo" className="w-[247px] h-auto mb-4" />

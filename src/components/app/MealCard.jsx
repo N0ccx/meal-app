@@ -20,11 +20,10 @@ const MealCard = ({ meal }) => {
         <div className="flex justify-between items-center text-sm font-bold">
           <h1>{name}</h1>
           <span className="text-red-600">
-          <img src={favorite} alt={favorite}/>
+            <img src={favorite} alt={favorite} />
           </span>
         </div>
 
-        {/* Meal Details: Kal, Cost, Prep Time, Rating */}
         <div className="flex gap-4 text-xs">
           <div>
             <span className="text-xxs">Kal</span>
@@ -43,8 +42,6 @@ const MealCard = ({ meal }) => {
             <p className="font-bold">{details.rating}</p>
           </div>
         </div>
-
-        {/* Actions: Servings and Swap Meal */}
         <div className="flex gap-4 items-center">
           <select className="w-32 py-1 px-2 border rounded-md text-sm">
             <option value="1">1 Serving</option>

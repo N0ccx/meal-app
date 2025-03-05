@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../components/app/TopNav'
+import { navItems } from '../assets/images'
 
 const Nutrition = () => {
   return (

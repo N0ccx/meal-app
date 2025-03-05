@@ -7,7 +7,7 @@ import Next from "../components/button";
 const GetStarted2 = () => {
   return (
     <>
-    <div className="flex flex-col justify-between items-center h-screen bg-gray-100">
+    <div className="flex flex-col justify-between items-center h-screen bg-white">
       <div className="flex flex-col items-center mt-20">
         <img src={logo} alt="Logo" className="w-[247px] h-auto mb-4" />
         <p className="text-gray-700 text-sm text-center">

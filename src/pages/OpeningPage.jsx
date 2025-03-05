@@ -7,7 +7,7 @@ const OpeningPage = () => {
       <img 
         src={openImage} 
         alt="home_logo" 
-        className="w-1/4 h-auto mb-4" // Adjust width and add margin below
+        className="abosolute w-1/4 h-auto mb-4" // Adjust width and add margin below
       />
       <div className="font-poppins text-[calc(1px+1vw)] font-normal leading-[calc(1px+1vw)] text-center text-white">
         Ai Powered Nutrition & Meal Prep Partner

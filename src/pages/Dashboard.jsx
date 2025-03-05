@@ -7,10 +7,11 @@ import BottomNav from "../components/app/BottomNav";
 
 const Dashboard1 = () => {
   return (
-    <div className="flex flex-col h-screen bg-white">
-      <Navbar label="Today" tokens={11} showNotification={true} />
+    <div className="flex flex-col h-[1500px] bg-white">
+      <Navbar label="Dashboard" tokens={20} showNotification={true} />
+
       <div className="items-center">
-        <img src={personalize} alt={personalize} className="mx-auto items-center py-" />
+        <img src={personalize} alt={personalize} className="mx-auto items-center py-5" />
       </div>
       <div className="mt-4 px-4">
         <h3 className="text-lg font-bold">Today's Meal</h3>

@@ -26,7 +26,6 @@ const CulturalPreferences = () => {
 
   return (
     <div className="flex flex-col h-screen bg-white">
-      {/* Navbar */}
       <Navbar label="Cultural Preferences" link="/ph1" />
 
       <form
@@ -41,7 +40,7 @@ const CulturalPreferences = () => {
           <select
             value={selectedCountry}
             onChange={(e) => setSelectedCountry(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-violet-600"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-red-600"
           >
             <option value="" disabled>
               Select your country
@@ -63,7 +62,7 @@ const CulturalPreferences = () => {
             <select
               value={selectedState}
               onChange={(e) => setSelectedState(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-violet-600"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-red-600"
             >
               <option value="" disabled>
                 Select your state
