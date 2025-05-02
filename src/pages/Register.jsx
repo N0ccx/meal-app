@@ -14,6 +14,7 @@ const Register = () => {
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [receivePromotions, setReceivePromotions] = useState(false);
   const [InputNameError, setInputNameError] = useState("");
+e
   const navigate = useNavigate();
 
   const togglePasswordVisibility = () => {
@@ -24,7 +25,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await axios.post("http://localhost:5000/api/register", { email, password });
-      localStorage.setItem("token", response.data.token); // Store token in localStorage
+      localStorage.setItem("token", response.data.token);
       navigate("/dashboard");
     } catch (err) {
       setError("Registration failed. Please try again.");
@@ -43,7 +44,7 @@ const Register = () => {
     <div className="flex flex-col items-center h-screen bg-white">
     <Navbar label="Create Account" link="/signin" />
 
-      {/*Logo Section */}
+      
       <div className="flex flex-col items-center mt-6">
         <img src={logo} alt="Company Logo" className="w-[247px] h-auto mb-4" />
         <p className="text-gray-700 text-sm text-center">
@@ -51,7 +52,7 @@ const Register = () => {
         </p>
       </div>
 
-      {/*Form */}
+ 
       <form onSubmit={handleRegister} className="w-[351px] max-w-md space-y-4 border-none outline-none">
         {InputNameError && <p>{InputNameError}</p>}
       <InputField
@@ -63,7 +64,7 @@ const Register = () => {
             placeholder="Enter your username"
           />
 
-        {/*Email */}
+      
         <InputField
             id="email"
             type="email"
@@ -73,7 +74,7 @@ const Register = () => {
             placeholder="Enter your email"
           />
 
-        {/*Password */}
+    
         <PasswordField
             id="password"
             label="Password"
@@ -83,8 +84,6 @@ const Register = () => {
             toggleVisibility={togglePasswordVisibility}
             placeholder="Enter your password"
           />
-
-        {/*Terms and Conditions */}
         <div className="flex items-center space-x-2 col-span-10">
           <input
             type="checkbox"

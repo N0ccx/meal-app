@@ -21,10 +21,8 @@ const ChangeEmail = () => {
         password,
       });
 
-      // Save the token in localStorage
       localStorage.setItem("token", response.data.token);
 
-      // Redirect to the dashboard or another protected route
       navigate("/settings");
     } catch (err) {
       setError("Your changes could not be saved. Please try again.");
@@ -34,12 +32,13 @@ const ChangeEmail = () => {
 
   return (
     <div className="flex flex-col h-screen bg-white">
-      {/* Navbar */}
-      <Navbar label="Change Email" link="/preferences" />
+      <Navbar label="Change Email" link="/settings" />
 
-      {/* Form */}
       <div className="flex flex-col items-center justify-center flex-grow">
-        <form onClick={handlechangeEmail} className="w-[351px] max-w-md space-y-6">
+        <form
+          onClick={handlechangeEmail}
+          className="w-[351px] max-w-md space-y-6"
+        >
           <InputField
             id="email"
             type="email"
@@ -53,9 +52,9 @@ const ChangeEmail = () => {
             label="Password"
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
-            
-            
             placeholder=""
+            isVisible={passwordVisible}
+            toggleVisibility={togglePasswordVisibility}
           />
           <div className="pt-2">
             <Next label="Save" link="/settings" />

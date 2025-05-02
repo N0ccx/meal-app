@@ -11,6 +11,7 @@ const Preferences = () => {
         <div>
           <h2 className="text-xl font-semibold">Victor</h2>
           <p className="text-gray-600">Junior Cook</p>
+          
           <button className="text-blue-500 hover:underline">
             Edit Profile
           </button>
@@ -106,7 +107,7 @@ const Preferences = () => {
               </div>
             </Link>
             <Link
-              to="/pf1"
+              to="/health"
               className="flex items-center justify-between py-4 border-b border-gray-300"
             >
               <span className="font-semibold text-gray-700">

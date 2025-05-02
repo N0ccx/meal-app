@@ -1,39 +1,11 @@
-const Tools = () => {
-  const [cookwareItems, setCookwareItems] = useState([
-    "Frying Pan",
-    "Saucepan",
-    "Stockpot",
-    "Wok",
-    "Griddle",
-    "Roasting Pan",
-    "Skillet",
-    "Pressure Cooker",
-    "Small Oven",
-    "Stock Pot",
-    "Duet Oven",
-    "Rice Cooker",
-  ]);
+<div className="space-y-4">
+            <span className="block  absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">
+              =
+            </span>
 
-  const [utensilsItems, setUtensilsItems] = useState([
-    "Spatula",
-    "Whisk",
-    "Ladle",
-    "Tongs",
-    "Peeler",
-    "Silicone",
-    "Rolling Pin",
-    "Potato Masher",
-    "Spotted Spoon",
-    "Garlic Press",
-  ]);
+            <span className="text-lg font-semibold">Time to cook(Meal Plan)</span>
 
-  const [knivesItems, setKnivesItems] = useState([
-    "Chef Knife",
-    "Paring Knife",
-    "Bread Knife",
-    "Santoku Knife",
-    "Cleaver",
-    "Kitchen Scissors",
-    "Mandoline Slicer",
-    "Meat Tenderizer",
-  ]);
+            <span className="block absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500">
+              ...
+            </span>
+          </div>

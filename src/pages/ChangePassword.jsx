@@ -9,9 +9,9 @@ const ChangePassword = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
 
-  const togglePasswordVisibility = () => {
-    setPasswordVisible(!passwordVisible);
-  };
+    const togglePasswordVisibility = () => {
+      setPasswordVisible(!passwordVisible);
+    };
 
   return (
     <div className="flex flex-col h-screen bg-white">

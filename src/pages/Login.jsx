@@ -63,7 +63,7 @@ const Login = () => {
             label="Email Address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
+            placeholder=""
           />
 
           <PasswordField
@@ -73,7 +73,7 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             isVisible={passwordVisible}
             toggleVisibility={togglePasswordVisibility}
-            placeholder="Enter your password"
+            placeholder=""
           />
 
           {error && (

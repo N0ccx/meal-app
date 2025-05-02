@@ -3,10 +3,10 @@ import React from "react";
 const SelectionGroup = ({
   label,
   options,
-  selectedOptions = [], // Changed to support multiple selections
+  selectedOptions = [],
   onSelect,
   columns = 3,
-  highlightSelected = false, // Added highlightSelected prop
+  highlightSelected = false,
 }) => {
   return (
     <div className="w-full max-w-md">
@@ -14,7 +14,7 @@ const SelectionGroup = ({
       <div
         className={`grid gap-2`}
         style={{
-          gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`, // Set dynamic columns
+          gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
         }}
       >
         {options.map((option) => (

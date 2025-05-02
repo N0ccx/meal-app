@@ -6,7 +6,7 @@ const InputField = ({
   label,
   value,
   onChange,
-  placeholder = "Enter text...", // Default placeholder
+  placeholder = "", // Default placeholder
   className = "",
 }) => (
   <div className="w-full">

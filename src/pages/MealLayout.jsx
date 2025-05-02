@@ -14,7 +14,7 @@ const MealLayout = () => {
     <div className="min-h-screen bg-white p-6">
       <Navbar label="Meal Layout" link="/meal-plan" />
 
-      <p className="justify-center mb-4 items-center">Tap drag and arrange meal in the order you want them to appear on your meal plan</p>
+      <div className="justify-center mb-4 items-center">Tap drag and arrange meal in the order you want them to appear on your meal plan</div>
 
       <div className="space-y-4">
         {meals.map((meal, index) => (
@@ -26,7 +26,7 @@ const MealLayout = () => {
             style={{ paddingLeft: "60px" }}
             onClick={() => handleMealClick(meal)}
           >
-            <span className="block absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">
+            <span className="block  absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">
               =
             </span>
 
